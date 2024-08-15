@@ -1,15 +1,20 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"log"
+	"os"
 )
 
 func main(){
-	var name string 
-	fmt.Println("Enter your name")
+	fmt.Println("what is your name ?")
+	reader :=bufio.NewReader(os.Stdin);
+	name ,err:=reader.ReadString('\n');
+	if(err==nil){
+		fmt.Println("hello",name);
+	}else{
+		log.Fatal(err)
+	}
 
-	fmt.Scanln(&name, name);
-	/* reader := bufio.NewReader(os.Stdin)
-	name, _ = reader.ReadString('\n') */
-	fmt.Println("Hello", name)
 }
